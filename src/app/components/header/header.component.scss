@@ -1,0 +1,14 @@
+:host {
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  .active {
+    background: rebeccapurple;
+  }
+  a {
+    border: none;
+    color: inherit;
+    text-decoration: none;
+    margin: 0 1rem;
+  }
+}
