@@ -1,6 +1,10 @@
 <p>home works!</p>
-<div *ngFor="let product of products">
-  <app-product [product]="product" (productClicked)="addProduct($event)">
+<div class="grid">
+  <app-product
+    *ngFor="let product of products"
+    [product]="product"
+    (productClicked)="addProduct($event)"
+  >
   </app-product>
 </div>
 <p>
