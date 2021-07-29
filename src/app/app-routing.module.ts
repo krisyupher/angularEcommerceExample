@@ -1,11 +1,8 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { NotFoundComponent } from './components/not-found/not-found.component';
-import { ProductComponent } from './components/product/product.component';
-import { PorductDetailComponent } from './components/porduct-detail/porduct-detail.component';
-import { LayoutComponent } from './components/layout/layout.component';
-import { HomeModule } from './home/home.module';
-
+import { NotFoundComponent } from './shared/components/not-found/not-found.component';
+import { LayoutComponent } from './shared/components/layout/layout.component';
+import { AdminGuard } from './core/guard/admin/admin.guard';
 const routes: Routes = [
   {
     path: '',
@@ -23,11 +20,9 @@ const routes: Routes = [
       },
       {
         path: 'product',
-        component: ProductComponent,
-      },
-      {
-        path: 'product/:id',
-        component: PorductDetailComponent,
+        canActivate: [AdminGuard],
+        loadChildren: () =>
+          import('./products/products.module').then((m) => m.ProductsModule),
       },
     ],
   },

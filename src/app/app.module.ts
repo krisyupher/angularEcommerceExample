@@ -6,32 +6,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './Material/material.module';
 
 import { AppComponent } from './app.component';
-import { ProductComponent } from './components/product/product.component';
-import { ExponentialPipe } from './pipes/exponential.pipe';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { NotFoundComponent } from './components/not-found/not-found.component';
-import { PorductDetailComponent } from './components/porduct-detail/porduct-detail.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LayoutComponent } from './components/layout/layout.component';
+import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ProductComponent,
-    ExponentialPipe,
-    HeaderComponent,
-    FooterComponent,
-    NotFoundComponent,
-    PorductDetailComponent,
-    LayoutComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
+    SharedModule,
+    CoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
