@@ -12,6 +12,8 @@ export class ProductsService {
     );
   }
   getProduct(id: string) {
-    return this.http.get(`http://platzi-store.herokuapp.com/products/${id}`);
+    return this.http.get<Product>(
+      `http://platzi-store.herokuapp.com/products/${id}`
+    );
   }
 }

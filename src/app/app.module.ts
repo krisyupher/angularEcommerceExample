@@ -10,10 +10,10 @@ import { ProductComponent } from './components/product/product.component';
 import { ExponentialPipe } from './pipes/exponential.pipe';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { PorductDetailComponent } from './components/porduct-detail/porduct-detail.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LayoutComponent } from './components/layout/layout.component';
 
 @NgModule({
   declarations: [
@@ -22,9 +22,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ExponentialPipe,
     HeaderComponent,
     FooterComponent,
-    HomeComponent,
     NotFoundComponent,
     PorductDetailComponent,
+    LayoutComponent,
   ],
   imports: [
     BrowserModule,
