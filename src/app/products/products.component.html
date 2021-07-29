@@ -1,1 +1,8 @@
-<p>products works!</p>
+<div class="productsContainer">
+  <app-product
+    *ngFor="let product of products"
+    [product]="product"
+    (productClicked)="addProduct($event)"
+  >
+  </app-product>
+</div>
