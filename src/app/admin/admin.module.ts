@@ -12,7 +12,12 @@ import { TableComponent } from './table/table.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
-  declarations: [ProductFormComponent, NavComponent, TableComponent, DashboardComponent],
+  declarations: [
+    ProductFormComponent,
+    NavComponent,
+    TableComponent,
+    DashboardComponent,
+  ],
   imports: [
     CommonModule,
     AdminRoutingModule,
