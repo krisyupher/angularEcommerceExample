@@ -1,13 +1,24 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
     <nav>
-      <a mat-button routerLink="/home" routerLinkActive="active">Home</a>
+      <!--  <a mat-button routerLink="/home" routerLinkActive="active">Home</a> -->
       <a mat-button routerLink="/product" routerLinkActive="active">Products</a>
-      <a mat-button routerLink="/contact" routerLinkActive="active">Contact</a>
+      <!--  <a mat-button routerLink="/contact" routerLinkActive="active">Contact</a> -->
     </nav>
-    <a mat-raised-button matBadge="4" matBadgeColor="warn">
-      <mat-icon>shopping_cart</mat-icon>Carrito
-    </a>
+    <div>
+      <a
+        mat-raised-button
+        matBadgeColor="warn"
+        [routerLink]="['/admin']"
+        routerLinkActive="router-link-active"
+        style="margin-right: 1rem;"
+      >
+        Soy Admin
+      </a>
+      <a mat-raised-button matBadge="{{ total }}" matBadgeColor="warn">
+        <mat-icon>shopping_cart</mat-icon>Carrito
+      </a>
+    </div>
     <!-- <mat-icon>menu</mat-icon> -->
   </mat-toolbar-row>
 </mat-toolbar>

@@ -40,7 +40,17 @@
       >
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>exampleEcommerce</span>
+      <div class="navContainer">
+        <span>Administrador </span>
+        <a
+          mat-raised-button
+          matBadgeColor="warn"
+          [routerLink]="['/product']"
+          routerLinkActive="router-link-active"
+        >
+          Soy Cliente
+        </a>
+      </div>
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>

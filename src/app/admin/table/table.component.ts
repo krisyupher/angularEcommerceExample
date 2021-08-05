@@ -25,7 +25,6 @@ export class TableComponent implements OnInit, AfterViewInit {
   }
   ngOnInit() {
     this.productsServices.getAllProducts().subscribe((products) => {
-      console.log(products);
       this.products = products;
     });
   }
