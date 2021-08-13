@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 import { ProductsService } from '../../core/services/products/products.service';
 import { Product } from '../../models/product.model';
 @Component({
@@ -8,7 +10,7 @@ import { Product } from '../../models/product.model';
   styleUrls: ['./porduct-detail.component.scss'],
 })
 export class PorductDetailComponent implements OnInit {
-  product: Product;
+  product$: Observable<Product>;
 
   constructor(
     private route: ActivatedRoute,
@@ -16,12 +18,10 @@ export class PorductDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe((params: Params) => {
-      this.productsService.getProduct(params.id).subscribe((items) => {
-        if (items !== null) {
-          this.product = items;
-        }
-      });
-    });
+    this.product$ = this.route.params.pipe(
+      switchMap((params: Params) => {
+        return this.productsService.getProduct(params.id);
+      })
+    );
   }
 }

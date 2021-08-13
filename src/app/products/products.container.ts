@@ -4,17 +4,21 @@ import { Product } from '../models/product.model';
 
 @Component({
   selector: 'app-products',
-  templateUrl: './products.component.html',
-  styleUrls: ['./products.component.scss'],
+  templateUrl: './products.container.html',
+  styleUrls: ['./products.container.scss'],
 })
-export class ProductsComponent implements OnInit {
+// eslint-disable-next-line @angular-eslint/component-class-suffix
+export class ProductsContainer implements OnInit {
   products: Product[] = [];
   constructor(private productsService: ProductsService) {}
 
   ngOnInit(): void {
-    this.productsService.getAllProducts().subscribe((items) => {
-      this.products = items;
-    });
+    this.productsService.getAllProducts().subscribe(
+      (items) => {
+        this.products = items;
+      },
+      (err) => {}
+    );
   }
   addProduct(id: number) {
     console.log(id);

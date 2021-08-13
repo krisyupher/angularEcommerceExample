@@ -27,9 +27,14 @@ export class ProductEditComponent implements OnInit {
   ngOnInit() {
     this.activeRouter.params.subscribe((params: Params) => {
       this.id = params.id;
-      this.productsService.getProduct(this.id).subscribe((product) => {
-        this.addressForm.patchValue(product);
-      });
+      this.productsService.getProduct(this.id).subscribe(
+        (product) => {
+          this.addressForm.patchValue(product);
+        },
+        (err) => {
+          console.error(err);
+        }
+      );
     });
   }
   onSubmit(event: Event): void {
@@ -37,9 +42,12 @@ export class ProductEditComponent implements OnInit {
     if (this.addressForm.valid) {
       this.productsService
         .updateProduct(this.id, this.addressForm.value)
-        .subscribe((newProduct) => {
-          this.router.navigate(['./admin/table']);
-        });
+        .subscribe(
+          (newProduct) => {
+            this.router.navigate(['./admin/table']);
+          },
+          (err) => {}
+        );
     }
   }
 }
